@@ -1,0 +1,71 @@
+#controls .new, #time {
+  border: none;
+  cursor: default;
+  background-color: white;
+  text-shadow: none;
+  box-shadow: none; }
+
+@keyframes bingo {
+  50% {
+    transform: scale(1.05); } }
+body *,
+body *:after,
+body *:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+#wrapper {
+  max-width: 540px; }
+
+#controls {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0; }
+
+#controls > div {
+  padding-left: 0;
+  padding-right: 0; }
+
+.gametile {
+  height: 80px;
+  width: 80px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  margin: 10px 5px;
+  background-color: white;
+  background-image: url("images/back.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.flip-image {
+  backface-visibility: hidden;
+  transform: rotateY(90deg);
+  transition: all .4s; }
+
+.flipped, .bingo {
+  backface-visibility: visible;
+  transform: rotateY(0deg);
+  pointer-events: none; }
+
+.bingo {
+  animation: bingo .4s; }
+
+#time {
+  font-family: monospace;
+  width: 100px; }
+
+.first {
+  font-weight: bold;
+  font-size: 16px; }
+
+#scoresEasy,
+#scoresHard,
+#leastMovesEasy,
+#leastMovesHard {
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */
