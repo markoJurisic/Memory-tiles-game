@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'digital-7';
+  src: url("digital-7.mono.ttf") format("truetype"); }
+
+/* line 7, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 #controls .new, #time {
   border: none;
   cursor: default;
@@ -8,6 +13,8 @@
 @keyframes bingo {
   50% {
     transform: scale(1.05); } }
+
+/* line 38, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 body *,
 body *:after,
 body *:before {
@@ -15,18 +22,22 @@ body *:before {
   padding: 0;
   box-sizing: border-box; }
 
+/* line 46, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 #wrapper {
   max-width: 540px; }
 
+/* line 50, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 #controls {
   width: 100%;
   margin: 0 auto;
   padding: 20px 0; }
 
+/* line 60, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 #controls > div {
   padding-left: 0;
   padding-right: 0; }
 
+/* line 65, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 .gametile {
   height: 80px;
   width: 80px;
@@ -41,31 +52,50 @@ body *:before {
   background-repeat: no-repeat;
   background-size: 100%; }
 
+/* line 81, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 .flip-image {
   backface-visibility: hidden;
   transform: rotateY(90deg);
   transition: all .4s; }
 
+/* line 87, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 .flipped, .bingo {
   backface-visibility: visible;
   transform: rotateY(0deg);
   pointer-events: none; }
 
+/* line 93, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 .bingo {
   animation: bingo .4s; }
 
+/* line 98, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 #time {
-  font-family: monospace;
+  padding-left: 0;
+  padding-right: 0;
+  background: #333;
+  color: lime;
+  font-family: 'digital-7', monospace;
   width: 100px; }
 
+/* line 110, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 .first {
   font-weight: bold;
   font-size: 16px; }
 
+/* line 117, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
 #scoresEasy,
 #scoresHard,
 #leastMovesEasy,
-#leastMovesHard {
+#leastMovesHard,
+#leastMovesEverEasy,
+#leastMovesEverHard,
+#bestTimeEverEasy,
+#bestTimeEverHard {
   display: none; }
+
+/* line 128, C:/Users/MarkoJ/Desktop/js memory game/style.scss */
+.allTimeRecords,
+#reset {
+  margin-top: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

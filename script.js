@@ -7,11 +7,15 @@ const imagesEasy = ['tile1.jpg', 'tile2.jpg', 'tile3.jpg', 'tile4.jpg', 'tile5.j
 	  normalGame = document.querySelector('#normal'),
 	  hardGame = document.querySelector('#hard'),
 	  fastest = document.querySelector('#fastest'),
-	  moves = document.querySelector('#moves')
+	  moves = document.querySelector('#moves'),
 	  leastMoves = document.querySelector('#leastMoves');
 
 // Concat is used so we get an array with 2 of each items
 let allImages = imagesNormal.concat(imagesNormal);
+
+// Get the best time ever and least moves ever for a normal game
+bestTimeEverNormalContainer.children[0].textContent = localStorage.getItem('bestTimeEverNormal');
+leastMovesEverNormalContainer.children[0].textContent = localStorage.getItem('leastMovesEverNormal');
 
 // Shuffle array
 shuffleArray(allImages); // Line 104
@@ -22,12 +26,14 @@ displayRecords();
 timer.stop();
 
 
-// Load game mode - choose the deck, shuffle it, display appropriate scoreboard, reset timer, and start the game
+// Load game mode - choose the deck, shuffle it, display appropriate scoreboard, reset timer, get all time best scores, and start the game
 easyGame.addEventListener('click', () => {
 	game = 'easy';
 	fastest.textContent = 'Fastest runs (easy):';
 	allImages = imagesEasy.concat(imagesEasy);
 	wrapper.style.maxWidth = '540px';
+	bestTimeEverEasyContainer.children[0].textContent = localStorage.getItem('bestTimeEverEasy');
+	leastMovesEverEasyContainer.children[0].textContent = localStorage.getItem('leastMovesEverEasy');
 	startGame(); // Line 38
 });
 
@@ -36,6 +42,8 @@ normalGame.addEventListener('click', () => {
 	fastest.textContent = 'Fastest runs (normal):';
 	allImages = imagesNormal.concat(imagesNormal);
 	wrapper.style.maxWidth = '540px';
+	bestTimeEverNormalContainer.children[0].textContent = localStorage.getItem('bestTimeEverNormal');
+	leastMovesEverNormalContainer.children[0].textContent = localStorage.getItem('leastMovesEverNormal');
 	startGame(); // Line 38
 });
 
@@ -44,6 +52,8 @@ hardGame.addEventListener('click', () => {
 	fastest.textContent = 'Fastest runs (hard):';
 	allImages = imagesHard.concat(imagesHard);
 	wrapper.style.maxWidth = '1080px';
+	bestTimeEverHardContainer.children[0].textContent = localStorage.getItem('bestTimeEverHard');
+	leastMovesEverHardContainer.children[0].textContent = localStorage.getItem('leastMovesEverHard');
 	startGame(); // Line 38
 })
 
@@ -103,6 +113,9 @@ function startGame() {
 						timeDisplay.style.animation = 'bingo .4s';
 						// Update appropriate scoreboard based on difficulty level
 						updateScore(game, counter);
+						checkBestTimeEver(game);	
+						checkLeastMovesEver(game, counter);
+						populateStorage();						
 					}
 				} else {
 					// 'Close' flipped images after a brief delay
